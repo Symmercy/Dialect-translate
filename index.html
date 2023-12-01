@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Croatian Dialect Translator</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f4f4f4;
+            color: #333;
+            text-align: center;
+            margin: 50px;
+        }
+
+        h1 {
+            color: #0066cc;
+        }
+
+        .button-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            margin-top: 30px;
+        }
+
+        .translate-button {
+            padding: 15px 30px;
+            font-size: 16px;
+            background-color: #2063f3;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            margin: 10px;
+            transition: background-color 0.3s ease;
+        div p {
+            font-size: 30px;
+        }
+        }
+
+        .translate-button:hover {
+            background-color: #000000;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Croatian Dialect Translator</h1>
+
+    <div class="button-container">
+        <button class="translate-button" onclick="redirectToDialect('stokavian-cakavian.html')">Stokavian Cakavian</button>
+        <button class="translate-button" onclick="redirectToDialect('cakavian-stokavian.html')">Cakavian Stokavian</button>
+        <button class="translate-button" onclick="redirectToDialect('stokavian-kajkavian.html')">Stokavian Kajkavian</button>
+        <button class="translate-button" onclick="redirectToDialect('kajkavian-stokavian.html')">Kajkavian Stokavian</button>
+        <!-- Add more buttons for additional dialects as needed -->
+    </div>
+    <div>
+        <p>Welcome to the Croatian Dialect Translator! This website allows you to explore different Croatian dialects and translations. Click on the buttons above to experience the richness of each dialect.</p>
+        <p>Feel free to navigate and enjoy the linguistic diversity of Croatian!</p>
+    </div>
+
+    <script>
+        function redirectToDialect(dialectLink) {
+            window.location.href = dialectLink;
+        }
+    </script>
+
+</body>
+</html>
