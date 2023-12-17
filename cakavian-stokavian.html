@@ -70,15 +70,21 @@
             font-weight: bold;
             color: #333;
         }
-         footer {
-            background-color: #ffffff; 
-            padding: 10px;
-            margin-top: auto; 
+        .footer {
+            background-color: #fff; /* Set the background color of your footer */
+            color: #333; /* Set the text color of your footer */
             text-align: center;
-        }
+            padding: 10px; /* Add padding for better appearance */
+            position: absolute;
+            bottom: 0;
+            width: 100%;
+        }        
     </style>
 </head>
 <body>
+    <footer class="footer">
+    <p>&copy; 2023 All Rights Reserved.</p>
+  </footer>
     <div id="converter-container">
         <h1>Croatian Dialect Translator</h1>        
             
@@ -86,7 +92,6 @@
                 <label for="stokavianInput">Enter Cakavian Croatian Word:</label>
                 <input type="text" id="stokavianInput" placeholder="Enter word...">
                 <button onclick="convert()">Convert</button>
-                <footer><p>&copy; 2023 All Rights Reserved.</p></footer>
                 
             </div>
 
