@@ -61,13 +61,15 @@
             border-radius: 4px;
             font-size: 16px;
         }
-        footer {
-            background-color: #f0f0f0; 
-            padding: 10px;
-            margin-top: auto; 
+        .footer {
+            background-color: #fff; /* Set the background color of your footer */
+            color: #333; /* Set the text color of your footer */
             text-align: center;
+            padding: 10px; /* Add padding for better appearance */
+            position: absolute;
+            bottom: 0;
+            width: 100%;
         }
-
         button:hover {
             background-color: #000000;
         }
@@ -80,9 +82,19 @@
     </style>
 </head>
 <body>
+    <nav class="navbar">
+    <ul>
+      <li><a href="https://symmercy.github.io/Dialect-translate/index">Home</a></li>
+      <li><a href="https://symmercy.github.io/Dialect-translate/cakavian-stokavian">Cakavian Stokavian</a></li>
+      <li><a href="https://symmercy.github.io/Dialect-translate/stokavian-cakavian">Stokavian Cakavian</a></li>
+      <li><a href="https://symmercy.github.io/Dialect-translate/stokavian-kajkavian">Stokavian Kajkavian</a></li>
+    </ul>
+  </nav>
+    <footer class="footer">
+    <p>&copy; 2023 All Rights Reserved.</p>
+  </footer>
     <div id="converter-container">
         <h1>Croatian Dialect Translator</h1>
-        <footer><p>&copy; 2023 All Rights Reserved.</p></footer>
             
             <div id="converter-form">
                 <label for="stokavianInput">Enter Kajkavian Croatian Word:</label>
