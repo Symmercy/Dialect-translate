@@ -79,16 +79,18 @@
             font-weight: bold;
             color: #333;
             
-        #top-bar {
+         #top-bar {
             background-color: #fff;
             color: #333;
             text-align: center;
-            padding: 10px;
+            padding: 20px;
             position: fixed;
             top: 0;
             width: 100%;
-            z-index: 1000; /* Ensure the bar is above other elements */
+            z-index: 1000;
             backdrop-filter: blur(10px);
+            display: flex;
+            justify-content: center;
         }
 
         #top-bar a {
@@ -97,7 +99,8 @@
             padding: 10px 20px;
             margin: 0 10px;
             border-radius: 5px;
-            background-color: #fff;
+            background-color: #eee;
+            transition: background-color 0.5s;
         }
 
         #top-bar a:hover {
