@@ -79,25 +79,36 @@
             font-weight: bold;
             color: #333;
             
-        #fancy-bar {
-            background-color: #3498db;
-            padding: 10px;
+        #top-bar {
+            background-color: #fff;
+            color: #333;
             text-align: center;
-            color: #fff;
+            padding: 10px;
+            position: fixed;
+            top: 0;
+            width: 100%;
+            z-index: 1000; /* Ensure the bar is above other elements */
+            backdrop-filter: blur(10px);
         }
 
-        #fancy-bar a {
-            color: #fff;
+        #top-bar a {
             text-decoration: none;
-            margin: 0 15px;
-            font-weight: bold;
+            color: #333;
+            padding: 10px 20px;
+            margin: 0 10px;
+            border-radius: 5px;
+            background-color: #fff;
+        }
+
+        #top-bar a:hover {
+            background-color: #ddd;
         }
 
 
     </style>
 </head>
 <body>
-    <div id="fancy-bar">
+    <div id="top-bar">
         <a href="https://Symmercy.github.io/Dialect-translate/cakavian-stokavian">Cakavian-Stokavian</a>
         <a href="https://Symmercy.github.io/Dialect-translate/stokavian-cakavian">Stokavian-Cakavian</a>
         <a href="https://Symmercy.github.io/Dialect-translate/stokavian-kajkavian">Stokavian-Kajkavian</a>
