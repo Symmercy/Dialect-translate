@@ -1510,7 +1510,7 @@ inputElement.addEventListener('input', showSuggestions);
 
 function showSuggestions() {
     const stokavianInput = inputElement.value.toLowerCase();
-    suggestionsContainer.innerHTML = '';
+    suggestionsContainer.innerHTML = ''; // Clear suggestions container
 
     // Display suggestions only when the input is not empty
     if (stokavianInput.trim() !== '') {
