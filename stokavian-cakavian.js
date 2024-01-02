@@ -986,11 +986,40 @@ const wordMappings = {
     
 };
 
+const inputElement = document.getElementById('stokavianInput');
+const suggestionsContainer = document.getElementById('suggestions');
+
+inputElement.addEventListener('input', showSuggestions);
+
+function showSuggestions() {
+    const stokavianInput = inputElement.value.toLowerCase();
+    suggestionsContainer.innerHTML = '';
+
+    // Display suggestions only when the input is not empty
+    if (stokavianInput.trim() !== '') {
+        // Filter and display suggestions based on the entered prefix
+        const suggestions = Object.keys(wordMappings).filter(word =>
+            word.toLowerCase().startsWith(stokavianInput)
+        );
+
+        suggestions.forEach(suggestion => {
+            const suggestionElement = document.createElement('div');
+            suggestionElement.textContent = suggestion;
+            suggestionElement.addEventListener('click', () => {
+                inputElement.value = suggestion;
+                suggestionsContainer.innerHTML = ''; // Clear suggestions after selecting
+            });
+            suggestionsContainer.appendChild(suggestionElement);
+        });
+    }
+}
+
 async function convert() {
-    const stokavianInput = document.getElementById('stokavianInput').value;
-    
+    const stokavianInput = inputElement.value;
+
     // Perform the conversion using the embedded word mappings
     const cakavianOutput = wordMappings[stokavianInput] || 'No Cakavian Equivalent';
 
     document.getElementById('result').innerText = 'Cakavian Output: ' + cakavianOutput;
 }
+
