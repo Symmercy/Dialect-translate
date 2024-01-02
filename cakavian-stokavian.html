@@ -1,13 +1,11 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <html lang="en">
-<head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Croatian Dialect Converter</title>
     <style>
-         body {
+        body {
             font-family: 'Arial', sans-serif;
             background-color: #f4f4f4;
             margin: 0;
@@ -17,6 +15,7 @@
             justify-content: center;
             height: 100vh;
         }
+
         #converter-container {
             text-align: center;
             background-color: #fff;
@@ -70,6 +69,7 @@
             font-weight: bold;
             color: #333;
         }
+
         .footer {
             background-color: #fff; /* Set the background color of your footer */
             color: #333; /* Set the text color of your footer */
@@ -79,36 +79,39 @@
             bottom: 0;
             width: 100%;
         }
+
         .topnav {
-  text-align: center;
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100;
-}
+            text-align: center;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+        }
 
-.topnav a {
-  border-radius: 4px;
-  display: inline-block; /* Prevents links from stacking on top of each other */
-  color: #f2f2f2;
-  text-align: center;
-  padding: 14px 16px;
-  text-decoration: none;
-  font-size: 17px;
-  margin-right: 20px; /* Add margin between links */
-}
+        .topnav a {
+            border-radius: 4px;
+            display: inline-block;
+            /* Prevents links from stacking on top of each other */
+            color: #f2f2f2;
+            text-align: center;
+            padding: 14px 16px;
+            text-decoration: none;
+            font-size: 17px;
+            margin-right: 20px;
+            /* Add margin between links */
+        }
 
-/* Change the color of links on hover */
-.topnav a:hover {
-  background-color: #ddd;
-  color: black;
-}
+        /* Change the color of links on hover */
+        .topnav a:hover {
+            background-color: #ddd;
+            color: black;
+        }
 
-/* Add a color to the active/current link */
-.topnav a.active {
-  background-color: #2063f3;
-  color: white;
-}        
+        /* Add a color to the active/current link */
+        .topnav a.active {
+            background-color: #2063f3;
+            color: white;
+        }
     </style>
 </head>
 <body>
@@ -117,21 +120,18 @@
         <a class="active" href="https://symmercy.github.io/Dialect-translate/stokavian-cakavian">Stokavian Cakavian</a>
         <a class="active" href="https://symmercy.github.io/Dialect-translate/kajkavian-stokavian">Kajkavian Stokavian</a>
         <a class="active" href="https://symmercy.github.io/Dialect-translate/stokavian-kajkavian">Stokavian Kajkavian</a>
-      </div> 
+    </div>
     <footer class="footer">
-    <p>&copy; 2023 All Rights Reserved.</p>
-  </footer>
+        <p>&copy; 2023 All Rights Reserved.</p>
+    </footer>
     <div id="converter-container">
-        <h1>Croatian Dialect Translator</h1>        
-            
-            <div id="converter-form">
-                 <div id="suggestions">
-                <label for="stokavianInput">Enter Cakavian Croatian Word:</label>
-                <input type="text" id="stokavianInput" placeholder="Enter word...">
-                <button onclick="convert()">Convert</button>
-                </div>
-            </div>
-
+        <h1>Croatian Dialect Translator</h1>
+        <div id="converter-form">
+            <label for="stokavianInput">Enter Cakavian Croatian Word:</label>
+            <input type="text" id="stokavianInput" placeholder="Enter word...">
+            <button onclick="convert()">Convert</button>
+        </div>
+        <div id="suggestions"></div>
         <div id="result"></div>
     </div>
 
@@ -1501,44 +1501,43 @@
             "žunta":" dodatak, prilog, dio tijela",
             "žurka":" dio splitske, narodne, težačke nošnje (muške)",
             "žveljarin" : "budilica"
+         };
+            const inputElement = document.getElementById('stokavianInput');
+        const suggestionsContainer = document.getElementById('suggestions');
 
-    };   
-    const inputElement = document.getElementById('stokavianInput');
-const suggestionsContainer = document.getElementById('suggestions');
+        inputElement.addEventListener('input', showSuggestions);
 
-inputElement.addEventListener('input', showSuggestions);
+        function showSuggestions() {
+            const stokavianInput = inputElement.value.toLowerCase();
+            suggestionsContainer.innerHTML = ''; // Clear suggestions container
 
-function showSuggestions() {
-    const stokavianInput = inputElement.value.toLowerCase();
-    suggestionsContainer.innerHTML = ''; // Clear suggestions container
+            // Display suggestions only when the input is not empty
+            if (stokavianInput.trim() !== '') {
+                // Filter and display suggestions based on the entered prefix
+                const suggestions = Object.keys(wordMappings).filter(word =>
+                    word.toLowerCase().startsWith(stokavianInput)
+                );
 
-    // Display suggestions only when the input is not empty
-    if (stokavianInput.trim() !== '') {
-        // Filter and display suggestions based on the entered prefix
-        const suggestions = Object.keys(wordMappings).filter(word =>
-            word.toLowerCase().startsWith(stokavianInput)
-        );
+                suggestions.forEach(suggestion => {
+                    const suggestionElement = document.createElement('div');
+                    suggestionElement.textContent = suggestion;
+                    suggestionElement.addEventListener('click', () => {
+                        inputElement.value = suggestion;
+                        suggestionsContainer.innerHTML = ''; // Clear suggestions after selecting
+                    });
+                    suggestionsContainer.appendChild(suggestionElement);
+                });
+            }
+        }
 
-        suggestions.forEach(suggestion => {
-            const suggestionElement = document.createElement('div');
-            suggestionElement.textContent = suggestion;
-            suggestionElement.addEventListener('click', () => {
-                inputElement.value = suggestion;
-                suggestionsContainer.innerHTML = ''; // Clear suggestions after selecting
-            });
-            suggestionsContainer.appendChild(suggestionElement);
-        });
-    }
-}
+        async function convert() {
+            const stokavianInput = inputElement.value;
 
-async function convert() {
-    const stokavianInput = inputElement.value;
+            // Perform the conversion using the embedded word mappings
+            const cakavianOutput = wordMappings[stokavianInput] || 'No Cakavian Equivalent';
 
-    // Perform the conversion using the embedded word mappings
-    const cakavianOutput = wordMappings[stokavianInput] || 'No Cakavian Equivalent';
-
-    document.getElementById('result').innerText = 'Cakavian Output: ' + cakavianOutput;
-}
+            document.getElementById('result').innerText = 'Cakavian Output: ' + cakavianOutput;
+        }
     </script>
 </body>
 </html>
