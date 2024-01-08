@@ -108,7 +108,6 @@ const wordMappings = {
 'cape': 'kuhinjske krpe',
 'cape': 'pelene',
 'cecati': 'dojiti, sisati',
-'cecek, cecka': 'dojka, sisa',
 'cejenica': 'cjedilo',
 'ceker': 'torba od komušine',
 'celimbati se': 'njihati se',
