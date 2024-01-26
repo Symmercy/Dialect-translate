@@ -9,4 +9,4 @@ ment but I never knew, the sources of the words are:
 * Kajkavian-Stokavian and Stokavian-Kajkavian -- https://emedjimurje.net.hr/rjecnik
 
 ## You can check out the website at:
-<a href="https://symmercy.github.io/dialect-translate"target="_blank">
+<a href=https://symmercy.github.io/dialect-translate>
