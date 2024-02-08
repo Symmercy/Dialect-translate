@@ -1,6 +1,8 @@
 # Dialect-Translate A website that translates words from one Croatian dialect to another
 
-## Has 3 different functional modes, 4th is under construction, has Cakavian-Stokavian, Stokavian-Cakavian and Kajkavian-Stokavian, I'm working on Stokavian-Cakavian
+## A tool to help you translate between Croatian dialects
+
+There are 3 working modes (will be 4 at the end), there are stokavian-cakavian, cakavian-stokavian, kajkavian-stokavian (I'm working on stokavian-cakavian)
 
 I created this website because the idea just popped up in my mind, I wanted to know what some words in other dialects 
 ment but I never knew, the sources of the words are:
